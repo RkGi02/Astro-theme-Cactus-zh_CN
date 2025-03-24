@@ -2,9 +2,9 @@ import type { SiteConfig } from "@/types";
 import type { AstroExpressiveCodeOptions } from "astro-expressive-code";
 
 export const siteConfig: SiteConfig = {
-	// Used as both a meta property (src/components/BaseHead.astro L:31 + L:49) & the generated satori png (src/pages/og-image/[slug].png.ts)
+	// 网站作者信息
 	author: "米皮妙妙屋",
-	// Date.prototype.toLocaleDateString() parameters, found in src/utils/date.ts.
+	// 日期格式配置
 	date: {
 		locale: "zh-CN",
 		options: {
@@ -13,19 +13,18 @@ export const siteConfig: SiteConfig = {
 			year: "numeric",
 		},
 	},
-	// Used as the default description meta property and webmanifest description
+	// 网站描述
 	description: "米皮妙妙屋",
-	// HTML lang property, found in src/layouts/Base.astro L:18 & astro.config.ts L:48
+	// HTML 的语言属性
 	lang: "zh-CN",
-	// Meta property, found in src/components/BaseHead.astro L:42
+	// Open Graph 的语言属性
 	ogLocale: "zh-CN",
-	// Used to construct the meta title property found in src/components/BaseHead.astro L:11, and webmanifest name found in astro.config.ts L:42
+	// 网站标题
 	title: "米皮妙妙屋",
 };
 
-// Used to generate links in both the Header & Footer.
+// 页眉和页脚的导航链接
 export const menuLinks: { path: string; title: string }[] = [
-  // 修改：改为中文
 	{
 		path: "/",
 		title: "主页",
@@ -44,7 +43,7 @@ export const menuLinks: { path: string; title: string }[] = [
 	},
 ];
 
-// https://expressive-code.com/reference/configuration/
+// Expressive Code 配置
 export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
 	styleOverrides: {
 		borderRadius: "4px",
@@ -59,17 +58,16 @@ export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
 		uiLineHeight: "inherit",
 	},
 	themeCssSelector(theme, { styleVariants }) {
-		// If one dark and one light theme are available
-		// generate theme CSS selectors compatible with cactus-theme dark mode switch
+		// 如果有一个深色主题和一个浅色主题
 		if (styleVariants.length >= 2) {
 			const baseTheme = styleVariants[0]?.theme;
 			const altTheme = styleVariants.find((v) => v.theme.type !== baseTheme?.type)?.theme;
 			if (theme === baseTheme || theme === altTheme) return `[data-theme='${theme.type}']`;
 		}
-		// return default selector
+		// 默认选择器
 		return `[data-theme="${theme.name}"]`;
 	},
-	// One dark, one light theme => https://expressive-code.com/guides/themes/#available-themes
+	// 使用一个深色主题和一个浅色主题
 	themes: ["dracula", "github-light"],
 	useThemedScrollbars: false,
 };
