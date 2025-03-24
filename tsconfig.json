@@ -1,12 +1,12 @@
 {
-	"extends": "astro/tsconfigs/strictest",
+	"extends": "astro/tsconfigs/strictest", // 继承 Astro 提供的最严格配置
 	"compilerOptions": {
-		"baseUrl": ".",
-		"lib": ["es2022", "dom", "dom.iterable"],
+		"baseUrl": ".", // 设置模块解析的基准路径
+		"lib": ["es2022", "dom", "dom.iterable"], // 使用 ECMAScript 2022 和 DOM API
 		"paths": {
-			"@/*": ["src/*"]
+			"@/*": ["src/*"] // 配置路径别名
 		}
 	},
-	"include": [".astro/types.d.ts", "**/*"],
-	"exclude": ["node_modules", "**/node_modules/*", ".vscode", "dist"]
+	"include": [".astro/types.d.ts", "**/*"], // 包含所有项目文件
+	"exclude": ["node_modules", "**/node_modules/*", ".vscode", "dist"] // 排除不需要编译的目录
 }
