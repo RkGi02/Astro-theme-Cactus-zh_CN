@@ -73,3 +73,4 @@ export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
 	themes: ["dracula", "github-light"],
 	useThemedScrollbars: false,
 };
+<script defer src="https://analytics.888796.xyz/tracker.min.js" data-website-id="米皮妙妙屋"></script>
